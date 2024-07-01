@@ -28,18 +28,40 @@ get_header(); ?>
 
 <div id="primary" <?php astra_primary_class(); ?>>
 
-    <?php astra_primary_content_top(); ?>
-    <div class="text-4xl text-red-800 font-bold underline">
-        Hello World !
-    </div>
-    <div class="bg-green-300 p-20 ">
-        theres another one
-    </div>
-    <div class="">there should be another one here</div>
-    could there be anothe rhtings haha
-    <?php astra_content_page_loop(); ?>
 
-    <?php astra_primary_content_bottom(); ?>
+    <?php
+
+    if (have_rows('sections')) :
+
+        // Loop through rows.
+        while (have_rows('sections')) : the_row();
+
+            // Case: Paragraph layout.
+            if (get_row_layout() == 'page_header') :
+                $args = array(
+                    'heading' => get_sub_field('heading'),
+                    'subheading' => get_sub_field('subheading'),
+                );
+                get_template_part('sections/page-header', null, $args);
+            // Do something...
+
+            // Case: Download layout.
+            // elseif (get_row_layout() == 'download') :
+            //     $file = get_sub_field('file');
+            // Do something...
+
+            endif;
+
+        // End loop.
+        endwhile;
+
+    // No value.
+    else :
+    // Do something...
+    endif;
+
+    ?>
+
 
 </div><!-- #primary -->
 

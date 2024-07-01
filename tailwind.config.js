@@ -5,9 +5,18 @@ module.exports = {
     "./page-custom.php",
     "./blocks/**/*.php",
     "./blocks/**/*.css",
-    "./resources/**/*.vue",],
+    "./resources/**/*.vue",
+    "./sections/**/*.php",
+  ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        '8xl': '1376px',
+      },
+      dropShadow: {
+        'heading': '0 4px 4px rgba(0, 0, 0, 0.25)',
+      }
+    },
   },
   plugins: [],
 }
