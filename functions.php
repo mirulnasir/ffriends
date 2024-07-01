@@ -51,3 +51,10 @@ define('IS_VITE_DEVELOPMENT', true);
 
 
 include "inc/inc.vite.php";
+
+
+function register_acf_blocks()
+{
+    register_block_type(__DIR__ . '/blocks/testimonial');
+}
+add_action('init', 'register_acf_blocks');
