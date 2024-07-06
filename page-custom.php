@@ -60,6 +60,16 @@ get_header(); ?>
                 );
                 get_template_part('sections/about', null, $args);
 
+            elseif (get_row_layout() == 'values_grid') :
+                $overline = get_sub_field('overline');
+                $heading = get_sub_field('heading');
+                $values = get_sub_field('values');
+                $args = array(
+                    'overline' => $overline,
+                    'heading' => $heading,
+                    'values' => $values,
+                );
+                get_template_part('sections/values-grid', null, $args);
             endif;
 
         // End loop.
