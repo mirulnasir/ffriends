@@ -14,6 +14,10 @@ module.exports = {
         '8xl': '1376px',
         '10xl': '1500px',
       },
+      fontFamily: {
+        heading: ['Raleway', 'sans-serif'],
+        body: ['Open Sans', 'sans-serif'],
+      },
       colors: {
         'brand-primary-blue': '#1C75BC',
         'brand-secondary-off-white': '#EAF4F6',
