@@ -36,19 +36,29 @@ get_header(); ?>
         // Loop through rows.
         while (have_rows('sections')) : the_row();
 
-            // Case: Paragraph layout.
+            // Case: Page Header layout.
             if (get_row_layout() == 'page_header') :
                 $args = array(
                     'heading' => get_sub_field('heading'),
                     'subheading' => get_sub_field('subheading'),
                 );
                 get_template_part('sections/page-header', null, $args);
-            // Do something...
 
-            // Case: Download layout.
-            // elseif (get_row_layout() == 'download') :
-            //     $file = get_sub_field('file');
-            // Do something...
+            // Case: About layout.
+            elseif (get_row_layout() == 'about') :
+                $heading = get_sub_field('heading');
+                $overline = get_sub_field('overline');
+                $body_copy = get_sub_field('body_copy');
+                $button = get_sub_field('button');
+                $image = get_sub_field('image');
+                $args = array(
+                    'heading' => $heading,
+                    'overline' => $overline,
+                    'body_copy' => $body_copy,
+                    'button' => $button,
+                    'image' => $image,
+                );
+                get_template_part('sections/about', null, $args);
 
             endif;
 
