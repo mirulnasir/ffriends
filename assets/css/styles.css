@@ -13,7 +13,15 @@
 
 @layer base {
   body {
-    @apply antialiased;
+    @apply antialiased text-brand-secondary-dark-gray text-lg;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-brand-primary-black;
   }
 }
 
