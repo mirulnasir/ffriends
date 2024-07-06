@@ -9,8 +9,8 @@ $link_title = $button['title'];
 $link_target = $button['target'] ? $button['target'] : '_self';
 ?>
 
-<div class="about">
-    <div class="max-w-8xl mx-auto px-8 lg:px-12 pt-12 lg:pt-20 pb-6 lg:pb-10">
+<section class="section-about">
+    <div class="container-narrow pt-12 lg:pt-20 pb-6 lg:pb-10">
         <div class="flex flex-wrap -mx-4">
             <div class="w-full lg:w-1/2 px-4">
                 <div class="relative h-full">
@@ -23,13 +23,13 @@ $link_target = $button['target'] ? $button['target'] : '_self';
                 </div>
             </div>
             <div class="w-full lg:w-1/2 px-4">
-                <h5 class="text-brand-primary-blue uppercase text-lg font-bold"><?php echo $overline; ?></h5>
-                <h2 class="text-5xl capitalize mt-4 font-bold"><?php echo $heading; ?></h2>
+                <h5 class="heading-overline"><?php echo $overline; ?></h5>
+                <h2 class="heading-h2 mt-4 "><?php echo $heading; ?></h2>
                 <p class="mt-8 text-lg"><?php echo $body_copy; ?></p>
-                <a href="<?php echo $link_url; ?>" class="bg-brand-primary-blue text-white px-6 py-4 uppercase font-bold rounded-lg inline-flex mt-8"><?php echo $link_title; ?></a>
+                <a href="<?php echo $link_url; ?>" class="btn mt-8 "><?php echo $link_title; ?></a>
 
             </div>
         </div>
 
     </div>
-</div>
+</section>

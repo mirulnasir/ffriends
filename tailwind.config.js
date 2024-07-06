@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       maxWidth: {
         '8xl': '1376px',
+        '10xl': '1500px',
       },
       colors: {
         'brand-primary-blue': '#1C75BC',

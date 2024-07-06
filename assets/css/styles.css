@@ -11,6 +11,50 @@
   font-display: swap;
 }
 
-body {
-  /* font-family: "Playwrite MX", sans-serif; */
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .container-narrow {
+    @apply max-w-8xl mx-auto px-8 lg:px-12;
+  }
+
+  .container-wide {
+    @apply max-w-10xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .py-extra-top {
+    @apply pt-12 lg:pt-20 pb-6 lg:pb-10;
+  }
+
+  .py-even {
+    @apply py-12 lg:py-20;
+  }
+  .py-sm-even {
+    @apply py-8 lg:py-12;
+  }
+  .py-extra-bottom {
+    @apply pt-6 lg:pt-10 pb-12 lg:pb-20;
+  }
+  .btn {
+    @apply bg-brand-primary-blue text-white px-6 py-4 uppercase font-bold rounded-lg inline-flex;
+  }
+
+  .heading-overline {
+    @apply text-brand-primary-blue uppercase text-lg font-bold;
+  }
+  .heading-h1-title {
+    @apply lg:text-6xl text-4xl text-white font-bold drop-shadow-heading;
+  }
+  .heading-h2 {
+    @apply text-5xl capitalize font-bold;
+  }
+}
+
+@layer utilities {
+  .gradient-brand-tr {
+    @apply bg-gradient-to-r from-[#273B93] to-[#0F75BC];
+  }
 }
