@@ -70,6 +70,18 @@ get_header(); ?>
                     'values' => $values,
                 );
                 get_template_part('sections/values-grid', null, $args);
+
+            //teams
+            elseif (get_row_layout() == 'team') :
+                $heading = get_sub_field('heading');
+                $overline = get_sub_field('overline');
+                $members = get_sub_field('members');
+                $args = array(
+                    'heading' => $heading,
+                    'overline' => $overline,
+                    'members' => $members,
+                );
+                get_template_part('sections/team', null, $args);
             endif;
 
         // End loop.

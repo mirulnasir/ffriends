@@ -47,7 +47,7 @@
     @apply pt-6 lg:pt-10 pb-12 lg:pb-20;
   }
   .btn {
-    @apply bg-brand-primary-blue text-white px-6 py-4 uppercase font-bold rounded-lg inline-flex;
+    @apply bg-brand-primary-blue text-base text-white px-6 py-5 uppercase font-bold rounded-lg inline-flex items-center justify-center tracking-widest;
   }
 
   .heading-overline {
