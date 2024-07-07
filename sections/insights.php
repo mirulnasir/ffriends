@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Template part for displaying the insights section
+ */
 $overline = $args['overline'];
 $heading = $args['heading'];
 ?>
@@ -18,27 +22,35 @@ $heading = $args['heading'];
                     'orderby' => 'date',
                     'order' => 'DESC'
                 );
-                $latest_insights = get_posts($args);
-                foreach ($latest_insights as $post) :
-                    setup_postdata($post);
-                    $title = get_the_title($post);
-                    $excerpt = get_the_excerpt($post);
-                    $permalink = get_the_permalink($post);
-                    $category = get_the_category($post);
-                    $category_name = $category[0]->name;
-                    $date = get_the_date('F j, Y', $post);
-                    $thumbnail_id = get_post_thumbnail_id($post);
-                    $author_id = get_the_author_meta('ID', $post->post_author);
-                    $author_name = get_the_author_meta('display_name', $author_id);
+                $rss = new DOMDocument();
+                $rss->load('https://thepropertytribune.com.au/feed/');
+                $items = $rss->getElementsByTagName('item');
+                $items = iterator_to_array($items);
+                $items = array_slice($items, 0, 6);
+
+
+                foreach ($items as $node) :
+
+                    $title = $node->getElementsByTagName('title')->item(0)->nodeValue;
+                    $date = $node->getElementsByTagName('pubDate')->item(0)->nodeValue;
+                    $date = date('F j, Y', strtotime($date));
+                    $excerpt = $node->getElementsByTagName('description')->item(0)->nodeValue;
+                    $link = $node->getElementsByTagName('link')->item(0)->nodeValue;
+                    $author = $node->getElementsByTagName('creator')->item(0)->nodeValue;
+                    $category = $node->getElementsByTagName('category')->item(0)->nodeValue;
+                    $thumbnail = $node->getElementsByTagName('enclosure')->item(0);
+                    $thumbnail_url = $thumbnail->getAttribute('url');
+
                 ?>
+
                     <div class="bg-white rounded-xl overflow-hidden group">
-                        <a href="<?php echo $permalink; ?>" class="">
+                        <a href="<?php echo $link; ?>" class="">
                             <div class="">
                                 <?php
-                                if ($thumbnail_id) :
+                                if ($thumbnail_url) :
                                 ?>
                                     <div class="w-full h-auto aspect-video overflow-hidden">
-                                        <?php echo wp_get_attachment_image($thumbnail_id, 'large', false, array('class' => ' w-full h-full object-cover group-hover:scale-105 transition-all duration-1000')); ?>
+                                        <img src="<?php echo $thumbnail_url ?>" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000">
                                     </div>
                                 <?php
                                 else :
@@ -56,7 +68,7 @@ $heading = $args['heading'];
                                 </div>
                                 <div class="text-sm font-body font-semibold uppercase space-x-2">
                                     <span class=""><?php echo $date; ?></span>
-                                    <span class="  text-brand-primary-blue"><?php echo $author_name; ?></span>
+                                    <span class="  text-brand-primary-blue"><?php echo $author; ?></span>
                                 </div>
                             </div>
                         </a>
