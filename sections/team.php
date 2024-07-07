@@ -49,7 +49,7 @@ $members = $args['members'];
                                 <p class="member-position font-bold uppercase text-brand-primary-blue text-lg"><?php echo $position; ?></p>
                                 <p class="member-bio mt-4 "><?php echo $bio; ?></p>
                                 <div class="mt-4">
-                                    <h4 class="text-[1.75rem] font-bold text-brand-secondary-dark-gray">Qualifications</h4>
+                                    <h4 class="text-[1.75rem] font-bold text-brand-secondary-dark-gray  font-heading">Qualifications</h4>
                                     <ul class="member-qualifications mt-4 space-y-2">
                                         <?php foreach ($qualifications as $qualification) :
                                             $qualification_name = $qualification['name'];
@@ -61,7 +61,7 @@ $members = $args['members'];
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M3.50004 5.33333L0.833374 8L8.83337 16L22.1667 2.66667L19.5 0L8.83337 10.6667L3.50004 5.33333Z" fill="#99BC0F" />
                                                         </svg>
                                                     </div>
-                                                    <span class="ml-2 leading-tight font-bold"><?php echo $qualification_name; ?></span>
+                                                    <span class="ml-2 leading-tight font-bold text-base"><?php echo $qualification_name; ?></span>
                                                 </div>
                                             </li>
                                         <?php endforeach; ?>
