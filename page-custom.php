@@ -82,6 +82,27 @@ get_header(); ?>
                     'members' => $members,
                 );
                 get_template_part('sections/team', null, $args);
+
+            //form
+            elseif (get_row_layout() == 'form') :
+                $form = get_sub_field('form');
+                $image = get_sub_field('image');
+                $heading = get_sub_field('heading');
+                $args = array(
+                    'form' => $form,
+                    'image' => $image,
+                    'heading' => $heading,
+                );
+                get_template_part('sections/form', null, $args);
+            //insights
+            elseif (get_row_layout() == 'post') :
+                $heading = get_sub_field('heading');
+                $overline = get_sub_field('overline');
+                $args = array(
+                    'heading' => $heading,
+                    'overline' => $overline,
+                );
+                get_template_part('sections/insights', null, $args);
             endif;
 
         // End loop.
