@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Template part for displaying the values grid section
+ */
 $values = $args['values'];
 $heading = $args['heading'];
 $overline = $args['overline'];

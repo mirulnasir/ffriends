@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Template part for displaying the about section
+ */
 $heading = $args['heading'];
 $overline = $args['overline'];
 $body_copy = $args['body_copy'];

@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Template part for displaying the form section
+ */
 $form = $args['form'];
 $image = $args['image'];
 $heading = $args['heading'];

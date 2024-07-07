@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Template part for displaying the page header section
+ */
 $heading = $args['heading'];
 $subheading = $args['subheading'];
 ?>

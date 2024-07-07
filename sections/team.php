@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Template part for displaying the team section
+ */
 $heading = $args['heading'];
 $overline = $args['overline'];
 $members = $args['members'];
