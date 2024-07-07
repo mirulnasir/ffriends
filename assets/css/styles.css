@@ -75,7 +75,7 @@
 
 @layer base {
   body {
-    @apply antialiased text-brand-secondary-dark-gray text-lg font-body;
+    @apply antialiased text-brand-secondary-dark-gray text-lg font-body relative;
   }
   h1,
   h2,
@@ -126,5 +126,134 @@
 @layer utilities {
   .gradient-brand-tr {
     @apply bg-gradient-to-r from-[#273B93] to-[#0F75BC];
+  }
+  .with--highlight {
+    & strong {
+      @apply text-brand-primary-blue;
+    }
+  }
+}
+
+.contact-form {
+  & form {
+    @apply space-y-4;
+    & fieldgroup {
+      @apply flex flex-wrap -mx-2;
+      & > p:first-child {
+        @apply w-full lg:w-1/3 px-2;
+      }
+      & > div {
+        @apply w-full lg:w-2/3 px-2 mt-2 lg:mt-0;
+        &.form-field--cols-2 > p {
+          @apply flex flex-wrap -mx-2 space-y-2 lg:space-y-0;
+          & > span {
+            @apply w-full lg:w-1/2 px-2;
+          }
+        }
+      }
+    }
+    & .form-submit {
+      @apply mt-6;
+    }
+    & label {
+      @apply block leading-tight;
+    }
+    & input[type="text"],
+    & input[type="email"],
+    & input[type="tel"],
+    & textarea,
+    & select {
+      @apply w-full px-3 py-4 border border-gray-200;
+    }
+  }
+}
+
+#ast-scroll-top {
+  @apply fixed    right-4 bottom-4  z-50;
+  & .ast-icon {
+    @apply w-10 h-10 text-white rounded-full bg-brand-primary-black border-brand-primary-black hover:bg-brand-primary-blue  border p-2 flex items-center justify-center cursor-pointer;
+    & svg {
+      @apply w-6 h-6 mb-1 fill-current rotate-180;
+    }
+  }
+}
+
+footer.site-footer {
+  & .site-above-footer-wrap {
+    & .ast-builder-footer-grid-columns {
+      @apply py-10 lg:py-16 flex flex-wrap -mx-2 justify-between;
+      & > div {
+        @apply w-auto  px-2;
+        & .footer-widget-area {
+          & h4 {
+            @apply font-bold font-body text-xl leading-tight mb-3 lg:mb-4;
+          }
+          & #block-13 {
+            @apply text-3xl lg:text-4xl text-brand-primary-black font-heading leading-tight font-bold;
+            & a {
+              @apply text-brand-primary-blue;
+            }
+          }
+        }
+        &.site-footer-above-section-1 {
+          & > .footer-widget-area {
+            @apply lg:max-w-xl;
+          }
+        }
+        &.site-footer-above-section-2 {
+          @apply mt-8 lg:mt-0;
+          & > .footer-widget-area {
+            @apply lg:max-w-52 lg:text-right flex flex-col lg:items-end;
+            & #block-17 {
+              @apply mt-2 lg:mt-3;
+              & ul > li {
+                @apply bg-transparent text-brand-primary-black w-6 h-6;
+                & a {
+                  @apply flex items-center justify-center p-0;
+                  & svg {
+                    @apply w-6 h-6;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  & .site-below-footer-wrap {
+    & .ast-builder-footer-grid-columns {
+      @apply py-4 lg:py-6 border-t;
+      & .ast-footer-copyright {
+        @apply lg:text-right text-sm;
+      }
+    }
+  }
+  & .site-below-footer-wrap,
+  & .site-above-footer-wrap {
+    @apply max-w-8xl mx-auto px-8 lg:px-12;
+  }
+}
+
+header {
+  & .site-primary-header-wrap {
+    @apply max-w-8xl mx-auto px-8 lg:px-12 py-4 lg:py-8;
+    & .ast-builder-grid-row {
+      @apply flex flex-wrap -mx-2 justify-between;
+      & > div {
+        @apply w-auto px-2;
+      }
+      & .site-header-primary-section-left {
+        @apply flex-1;
+      }
+      & .site-header-primary-section-right {
+        & a.ast-custom-button-link {
+          @apply bg-brand-primary-blue text-white px-3 lg:px-6 py-2 lg:py-5 uppercase font-bold rounded-lg inline-flex items-center justify-center tracking-widest;
+        }
+        & a.menu-link {
+          @apply sr-only;
+        }
+      }
+    }
   }
 }
