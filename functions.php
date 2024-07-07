@@ -52,6 +52,42 @@ define('IS_VITE_DEVELOPMENT', true);
 
 include "inc/inc.vite.php";
 
+// Change excerpt length
+add_filter('get_the_excerpt', function ($excerpt, $post) {
+
+    $excerpt_length = 10; // Change excerpt length 
+    $excerpt_more   = null;
+
+    if (has_excerpt($post)) {
+        $excerpt = wp_trim_words($excerpt, $excerpt_length, $excerpt_more);
+    }
+
+    return $excerpt;
+}, 10, 2);
+
+
+add_filter(
+    'excerpt_length',
+    function ($length) {
+        // Number of words to display in the excerpt.
+        return 20;
+    },
+    500
+);
+
+/**
+ * Customize the "Read More" text for post excerpts to include a link to the full article.
+ * 
+ * For more information, refer to the WordPress Codex:
+ * @link https://codex.wordpress.org/Customizing_the_Read_More#Modify_the_Read_More_text_when_using_the_the_excerpt.28.29
+ */
+function new_excerpt_more($more)
+{
+    global $post;
+    return null;
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 
 function register_acf_blocks()
 {
