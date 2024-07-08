@@ -35,7 +35,7 @@ $members = $args['members'];
                                         <?php echo wp_get_attachment_image($image, 'large', false, array('class' => ' aspect-[251/320] w-full object-cover')); ?>
                                     </div>
 
-                                    <a href="" class="btn w-full mt-4 px-4">
+                                    <a href="" class="btn w-full mt-4 px-4" data-track-event="team-member-click" data-track-event-name="<?php echo $name; ?>">
                                         <span class="mx-auto flex items-center justify-center ">
                                             <span class="block flex-none">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

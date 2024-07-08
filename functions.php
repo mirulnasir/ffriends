@@ -19,9 +19,8 @@ define('CHILD_THEME_FINANCE_FRIENDS_CHILD_VERSION', '1.0.0');
  */
 function child_enqueue_styles()
 {
-    //disable caching by wp_enqueue_style('main-styles', get_template_directory_uri() . '/css/style.css', array(), filemtime(get_template_directory() . '/css/style.css'), false);
+    wp_enqueue_script('jquery');
     wp_enqueue_style('finance-friends-child-theme-meta-css', get_stylesheet_directory_uri() . '/style.css', array('astra-theme-css'), CHILD_THEME_FINANCE_FRIENDS_CHILD_VERSION, 'all');
-    // wp_enqueue_style( 'finance-friends-child-theme-css', get_stylesheet_directory_uri() . '/dist/index.css', array(), filemtime(get_stylesheet_directory() . '/dist/index.css'), 'all' );
 }
 
 add_action('wp_enqueue_scripts', 'child_enqueue_styles', 15);
@@ -47,7 +46,7 @@ function astra_force_remove_style()
 }
 add_action('wp_enqueue_scripts', 'astra_force_remove_style', 99);
 
-define('IS_VITE_DEVELOPMENT', true);
+define('IS_VITE_DEVELOPMENT', false);
 
 
 include "inc/inc.vite.php";
